@@ -42,7 +42,7 @@ catch(err)
 }
 
 console.log("menudisable",menudisable)
-const app = menudisable?(
+const app = !menudisable?(
   <ThemeProvider theme={supersetTheme}>
     <Menu data={menu} />
   </ThemeProvider>
