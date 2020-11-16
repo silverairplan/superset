@@ -25,9 +25,23 @@ const container = document.getElementById('app');
 const bootstrapJson = container?.getAttribute('data-bootstrap') ?? '{}';
 const bootstrap = JSON.parse(bootstrapJson);
 const menu = { ...bootstrap.common.menu_data };
-const app = (
+let menudisable = false;
+try
+{
+  let search = new URLSearchParams(window.location.search);
+  if(search.get('menudisable'))
+  {
+    menudisable = true;
+  }
+}
+catch(err)
+{
+
+}
+
+const app = menudisable?(
   <ThemeProvider theme={supersetTheme}>
     <Menu data={menu} />
   </ThemeProvider>
-);
+):(<></>);
 ReactDOM.render(app, document.getElementById('app-menu'));
