@@ -33,6 +33,8 @@ try
   {
     menudisable = true;
   }
+
+  console.log("search",search);
 }
 catch(err)
 {
